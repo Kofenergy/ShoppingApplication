@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingApplication.Views.NewCategoryPage"
+             Title="New Category">
+
+    <VerticalStackLayout Margin="10">
+
+        
+        <Label Text="Category name"
+               FontSize="24"
+               Margin="10"
+               HorizontalOptions="Center"/>
+
+       
+        <Editor 
+            x:Name="CategoryEditor"
+            Margin="5"
+            FontSize="20"
+            HorizontalOptions="FillAndExpand"
+            WidthRequest="300"/>
+
+      
+        <Button 
+            Text="Add"
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            Clicked="CreateButton_Clicked"
+            Margin="20"
+            FontSize="20"
+            BackgroundColor="white"/>
+
+    </VerticalStackLayout>
+
+</ContentPage>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingApplication.Views.Shops"
+             xmlns:controls="clr-namespace:ShoppingApplication.Controls"
+             Title="Shops">
+    <VerticalStackLayout>
+        <Picker
+            x:Name="ShopPicker"
+            HorizontalOptions="Center"
+            FontSize="24"
+            Margin="20"
+            WidthRequest="170"
+            Title="Choose a shop"/>
+        <Button
+            x:Name="SelectButton"
+            HorizontalOptions="Center"
+            WidthRequest="170"
+            Text="Select"
+            Clicked="OnSelectClicked"
+            Margin="5"
+            FontSize="20"
+            BackgroundColor="White"/>
+
+        <VerticalStackLayout
+            x:Name="InvisibleLayout"
+            IsVisible="false"
+            Margin="10"
+            >
+            <CollectionView
+                x:Name="ProductsCollection"
+                SelectionMode="None"
+                ItemsSource="{Binding Path=Products}">     
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <controls:ProductToBuy 
+                            IsProductNotBought="{Binding IsProductNotBought}"
+                            ProductName="{Binding Name}"
+                            Quantity="{Binding Quantity}"
+                            QuantityUnit="{Binding QuantityUnit}"
+                            DefaultShop="{Binding DefaultShop}"
+                            IsProductBought="{Binding IsProductBought}"
+                />
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+
+        </VerticalStackLayout>
+    
+    </VerticalStackLayout>
+</ContentPage>

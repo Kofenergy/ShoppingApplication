@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingApplication.Controls.ShoppingProduct"
+             x:Name="this">
+
+    <Frame 
+        BindingContext="{x:Reference this}"
+        Margin="3"
+        WidthRequest="500"
+        >
+
+        <Grid
+            ColumnDefinitions="2*,*,*,0.5*,*"
+            Padding="5"
+            >
+
+            <VerticalStackLayout
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start">
+
+                <Label 
+                    x:Name="NameLabel"
+                    Text="{Binding ProductName, FallbackValue=DefaultName}"
+                    FontSize="24"
+                    Margin="10"
+                    />
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout
+                    Grid.Column="1">
+
+                <HorizontalStackLayout
+                    HorizontalOptions="Center">
+
+       
+
+                    <Label
+                        x:Name="QuantityLabel"
+                        Text="{Binding Quantity, FallbackValue=-1}"
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                        Margin="4"/>
+
+                    <Label
+                        x:Name="UnitLabel"
+                        Text="{Binding QuantityUnit, FallbackValue=Unit}"
+                        FontSize="16"
+                        HorizontalOptions="Center" 
+                        Margin="4"/>
+                    
+                   
+
+                </HorizontalStackLayout>
+
+                <VerticalStackLayout
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <Stepper
+                        Value="{Binding Quantity}"
+                        Minimum="1"
+                        Maximum="99999999999999999"
+                        Scale="1"
+                        ValueChanged="QuantityValue_Changed"/>
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout
+                Grid.Column="2"
+                Padding="5"
+                VerticalOptions="Center">
+
+                <Label
+                    x:Name="ShopLabel"
+                    Text="{Binding DefaultShop, FallbackValue=DefaultShop}"/>
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout
+                Grid.Column="3"
+                Padding="5"
+                VerticalOptions="Center">
+
+                <CheckBox
+                    IsChecked="{Binding IsProductBought, FallbackValue=false}"
+                    CheckedChanged="IsBought_Changed"
+                    HorizontalOptions="Start"/> 
+
+            </VerticalStackLayout>
+
+            <Button
+                Grid.Column="4"
+                Text="Delete"
+                Clicked="Delete_Clicked"
+                TextColor="White"
+                BackgroundColor="Gray"/>
+
+        </Grid>
+
+    </Frame>
+    
+</ContentView>

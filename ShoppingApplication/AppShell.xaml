@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ShoppingApplication.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:ShoppingApplication.Views"
+    BackgroundColor="Black">
+
+   
+    <TabBar>
+        <ShellContent 
+            Title="Categories"
+            ContentTemplate="{DataTemplate views:MainPage}">
+            
+        </ShellContent>
+
+        <ShellContent 
+            Title="All"
+            ContentTemplate="{DataTemplate views:ShopView}">
+            
+        </ShellContent>
+
+        <ShellContent
+            Title="Shops"
+            ContentTemplate="{DataTemplate views:Shops}">
+            
+        </ShellContent>
+    </TabBar>
+
+</Shell>

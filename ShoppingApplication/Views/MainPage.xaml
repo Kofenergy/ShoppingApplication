@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingApplication.Views.MainPage"
+             xmlns:controls="clr-namespace:ShoppingApplication.Controls"
+             Title="Categories"
+             BackgroundColor="Black">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add product" Clicked="NewProduct_Clicked"/>
+        <ToolbarItem Text="Add category" Clicked="NewCategory_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <HorizontalStackLayout
+            Margin="10"
+            HorizontalOptions="Center">
+
+        <CollectionView
+                x:Name="CategoriesCollection"
+                ItemsSource="{Binding Categories}">
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <controls:ProductCategory 
+                        CategoryName="{Binding Name}"
+                        Products="{Binding Products}" />
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </HorizontalStackLayout>
+
+</ContentPage>
+    

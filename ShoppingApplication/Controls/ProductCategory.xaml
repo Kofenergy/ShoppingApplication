@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingApplication.Controls.ProductCategory"
+             xmlns:controls="clr-namespace:ShoppingApplication.Controls"
+             x:Name="this">
+
+    <Frame BindingContext="{x:Reference this}"
+           BackgroundColor="Gray" 
+           Margin="10">
+
+        <VerticalStackLayout
+            WidthRequest="600">
+
+            <Label 
+                Text="{Binding CategoryName}"
+                HorizontalTextAlignment="Center"
+                FontSize="32"
+                TextColor="White"/>
+
+            <Button
+                x:Name="ProductsButton"
+                Clicked="OnProductsButtonClicked"
+                HorizontalOptions="Center"
+                Text="Show Products"
+                Margin="20"
+                BackgroundColor="Black"
+                TextColor="White"/>
+
+
+            <CollectionView
+                x:Name="ProductsCollection"
+                SelectionMode="None"
+                IsVisible="Hidden"
+                ItemsSource="{Binding Path=Products}">
+
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <controls:ShoppingProduct 
+                            ProductName="{Binding Name}"
+                            Quantity="{Binding Quantity}"
+                            QuantityUnit="{Binding QuantityUnit}"
+                            DefaultShop="{Binding DefaultShop}"
+                            IsProductBought="{Binding IsProductBought}"
+                            />
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+        
+    </Frame>
+    
+</ContentView>
